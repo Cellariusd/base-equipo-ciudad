@@ -1,0 +1,17 @@
+# Compilación local y archivos temporales; no ignorar ejemplos documentados.
+*.exe
+*.pdb
+*.o
+*.obj
+# Archivos de sesion y compilacion de IDE; no borrar archivos existentes.
+*.layout
+*.depend
+*.cbTemp
+Makefile.win
+/bin/
+/obj/
+edificios.svg
+horizonte.svg
+pruebas/_salida_*
+*.tmp
+*.bak
