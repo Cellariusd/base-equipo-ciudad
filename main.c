@@ -13,7 +13,7 @@ static void mostrar_menu(void) {
     printf("7. Guardar ciudad\n");
     printf("8. Cargar ciudad\n");
     printf("0. Salir\n");
-    printf("HOLAPRUEBA"),
+    printf("HOLAPRUEBA");
     printf("> ");
 }
 
