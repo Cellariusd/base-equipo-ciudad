@@ -27,7 +27,7 @@ En la versión anterior se compilaron y ejecutaron los seis ejemplos `pruebas/ej
 
 Se cambiaron los contratos de los compañeros 4 y 5 para que muestren vistas en pantalla y regresen al menú, sin generar archivos SVG: `graficar_edificios(const Ciudad *)` y `graficar_horizonte(const Horizonte *)`. Se agregó `ESTADO_GRAFICO` para fallos detectables de la vista. La biblioteca concreta sigue sin elegirse ni instalarse en esta base.
 
-El programa principal, `pruebas_entrada.c`, `pruebas/modulos.c`, los dos ejemplos gráficos y `pruebas/dobles_menu.c` se compilaron en Windows con GCC 16.2.0 y `-std=c11 -Wall -Wextra -Wpedantic -Werror`, sin advertencias ni errores. Resultados:
+El programa principal, `pruebas/entrada.c`, `pruebas/modulos.c`, los dos ejemplos gráficos y `pruebas/dobles_menu.c` se compilaron en Windows con GCC 16.2.0 y `-std=c11 -Wall -Wextra -Wpedantic -Werror`, sin advertencias ni errores. Resultados:
 
 | Comprobación ejecutada | Resultado obtenido |
 |---|---|
@@ -38,6 +38,28 @@ El programa principal, `pruebas_entrada.c`, `pruebas/modulos.c`, los dos ejemplo
 | Comentarios y cadenas de `.c`/`.h` | Solo ASCII, compatibles con la codificación de Dev-C++ 5.11. |
 
 **No se abrió ninguna ventana gráfica**: la biblioteca está pendiente y los módulos gráficos siguen sin implementar. La aprobación visual de ejes, escala y figuras, y la compilación con una biblioteca concreta, quedan pendientes. El ejecutable `pruebas_menu.exe` es temporal y está excluido por `.gitignore`.
+
+## Revisión para compartir con el equipo — 7 de noviembre de 2026
+
+**Conclusión:** la base está preparada para repartir las tareas. El programa completo seguirá pendiente hasta implementar e integrar los seis módulos.
+
+Se simplificó el README para empezar por tarea, ejemplo y entrega. Se añadieron pasos de GitHub Desktop, comandos individuales y una guía separada de pruebas del integrador. Se aclaró el formato del horizonte que comparten los módulos y el formato del archivo de datos.
+
+Comprobaciones repetidas en esta revisión con GCC y `-std=c11 -Wall -Wextra -Wpedantic -Werror`:
+
+| Comprobación | Resultado |
+|---|---|
+| Compilar programa, prueba de entrada, prueba de módulos, menú simulado y seis ejemplos | Diez ejecutables compilados sin advertencias ni errores. |
+| Validación de entrada | 13 comprobaciones correctas; 0 fallos. |
+| Menú con funciones simuladas | Verificación de `verificar_menu.py` correcta. |
+| Menú real de la base | Opción gráfica con ciudad vacía, registro pendiente y salida correctos. |
+| Seis ejemplos y seis selecciones de la prueba de módulos | Todos notifican `PENDIENTE` y terminan con código 1, como corresponde a las funciones provisionales. |
+| Fuentes `.c` y `.h` | Sin caracteres fuera de ASCII. |
+| Archivos registrados en Git | No hay `.exe`, `.o`, `.obj`, `.dll`, `.layout` ni `Makefile.win` registrados. Las salidas locales comprobadas están ignoradas. |
+
+`proto.dev` sí está registrado, pero no lista archivos fuente. Se documentó cómo compilar con GCC o crear un proyecto de consola en C. Esta revisión no verificó la compilación desde la interfaz de un IDE ni una biblioteca gráfica real.
+
+Antes de repartir: asignar los seis responsables y confirmar que todos puedan compilar su ejemplo. Antes de implementar las ventanas: acordar con el profesor la biblioteca y compartir su configuración.
 
 ## Tabla para completar durante la integración
 

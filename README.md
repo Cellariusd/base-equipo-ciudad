@@ -1,90 +1,86 @@
-# Ciudad: base de trabajo del equipo
+# Proyecto Ciudad — base del equipo
 
-Esta es una **base educativa incompleta**, no la solución terminada. El menú, los tipos compartidos y la validación geométrica común ya existen. Los seis módulos de los compañeros contienen funciones provisionales que devuelven `ESTADO_PENDIENTE`; no se debe interpretar que funcionan solo porque compilan. El listado también está pendiente y lo indica al llamarse.
+Programa en C para registrar edificios, calcular el horizonte visible, obtener el área y el perímetro de su unión, mostrar gráficos y guardar los datos.
 
-Los comentarios de los archivos `.c` y `.h` se escribieron sin tildes ni ñ para que también se lean en Dev-C++ 5.11 con su configuración predeterminada. La documentación `.md` conserva el español con tildes. Si ya tenías un archivo abierto en Dev-C++, cierra y vuelve a abrirlo para ver la versión actual; si hiciste cambios sin guardar, revísalos antes de cerrar para no perderlos ni sobrescribir la versión nueva.
+**Esta es la base para empezar el trabajo en equipo.** El menú y la validación de entrada están preparados. Los seis módulos de la tabla aún deben implementarse: por eso aparece `PENDIENTE` al probarlos.
 
-## Responsabilidades
+## 1. Encuentra tu tarea
 
-| Responsable | Archivo principal | Funciones |
-|---|---|---|
-| Integrador | `main.c`, `entrada.c`, `entrada.h`, `ciudad.h`, `comun.c`, documentación y pruebas | Contratos, menú, lectura, validación común e integración |
-| Compañero 1 | `gestion.c` | Registrar, modificar, eliminar y listar |
-| Compañero 2 | `horizonte.c` | Horizonte visible |
-| Compañero 3 | `medidas.c` | Área y perímetro de la unión |
-| Compañero 4 | `grafico_edificios.c` | Mostrar los rectángulos en pantalla |
-| Compañero 5 | `grafico_horizonte.c` | Mostrar el horizonte en pantalla |
-| Compañero 6 | `archivos.c` | Guardar y cargar ciudades |
+El integrador debe indicar quién asume cada número antes de repartir el trabajo.
 
-Leer primero `documentacion/guia_base.md` para entender el menú, estructuras y punteros; después consultar `documentacion/funciones.md` para los contratos y tareas. Los archivos `entrada.c` y `entrada.h` separan la lectura y validación textual del menú. Ningún compañero debe cambiar los archivos del integrador sin coordinarlo.
+| Responsable | Archivo que debes completar | Qué debes lograr | Tu ejemplo para probar |
+|---|---|---|---|
+| Compañero 1 | `gestion.c` | Registrar, modificar, eliminar y listar edificios | `pruebas/ejemplo_gestion.c` |
+| Compañero 2 | `horizonte.c` | Convertir los edificios en tramos del horizonte visible | `pruebas/ejemplo_horizonte.c` |
+| Compañero 3 | `medidas.c` | Calcular área y perímetro a partir del horizonte | `pruebas/ejemplo_medidas.c` |
+| Compañero 4 | `grafico_edificios.c` | Mostrar los edificios como rectángulos en pantalla | `pruebas/ejemplo_grafico_edificios.c` |
+| Compañero 5 | `grafico_horizonte.c` | Mostrar el perfil del horizonte en pantalla | `pruebas/ejemplo_grafico_horizonte.c` |
+| Compañero 6 | `archivos.c` | Guardar y cargar los edificios en un archivo de texto | `pruebas/ejemplo_archivos.c` |
 
-## Decisión gráfica pendiente
+El **integrador** mantiene `main.c`, `entrada.c`, `entrada.h`, `ciudad.h`, `comun.c` y coordina las pruebas y la unión del trabajo.
 
-El objetivo es mostrar **dos vistas independientes en pantalla**, sin generar archivos de imagen. `graphics.h` es una opción, pero la biblioteca y su versión todavía deben confirmarse con el profesor. La base **no instala ni incluye ninguna biblioteca gráfica**, y las dos funciones gráficas siguen pendientes. El programa de ejemplo con SDL_bgi se encuentra en otra carpeta de tu computadora; no forma parte de este repositorio y, si este se clona, tampoco estará disponible automáticamente.
+## 2. Empieza por aquí
 
-Las funciones gráficas ahora reciben solo los datos que mostrarán: `graficar_edificios(&ciudad)` y `graficar_horizonte(&horizonte)`. El ejemplo anterior conservaba un parámetro `ruta` por compatibilidad con SVG: **no copies sus módulos tal cual**, pues sus firmas son diferentes. Al escoger una biblioteca, el integrador deberá acordar cómo configurar Code::Blocks, enlazarla y compartir las dependencias, además de coordinar la apertura y cierre de las ventanas con los compañeros 4 y 5.
+1. **Clona el repositorio y crea tu rama** siguiendo [la guía de GitHub Desktop](documentacion/github_desktop.md). Una rama es tu espacio de trabajo dentro del repositorio.
+2. **Abre tu archivo `.c`** y lee el comentario inicial: explica qué recibes, qué debes hacer y cómo probarlo.
+3. Consulta **tu sección** en [funciones.md](documentacion/funciones.md). Allí están los acuerdos que tu función debe respetar.
+4. **Compila y ejecuta tu ejemplo** con [estos comandos](pruebas/LEEME.md#comandos-por-compañero). Al principio debe indicar `PENDIENTE`.
+5. Completa tu función, guarda, vuelve a compilar y prueba. El ejemplo trae datos preparados: **puedes avanzar sin esperar a los otros módulos**.
+6. Prueba más casos y envía tus cambios siguiendo el apartado «Qué entregar» de abajo.
 
-## Compilar en Windows con GCC/MinGW
+Si necesitas repasar estructuras, `const`, punteros o `->`, consulta [la guía para entender el código](documentacion/guia_base.md).
 
-Abrir la terminal **MSYS2 UCRT64**, entrar en esta carpeta y ejecutar:
+### Reglas para que las partes encajen
+
+- Conserva los nombres, parámetros y tipos de las funciones de `ciudad.h`. Acuerda cualquier cambio con el integrador.
+- Escribe la solución en tu módulo. El archivo `ejemplo_*.c` sirve para probar; no reemplaza el menú.
+- Las funciones reciben sus datos por parámetros. No agregues otro menú ni pidas datos con `scanf` dentro de ellas. El listado imprime datos y las vistas gráficas permiten terminar de ver el dibujo.
+- Devuelve `ESTADO_OK` solo cuando la operación esté realizada. Reemplaza el cuerpo provisional, incluyendo los `(void)` que ya no necesites.
+- Los datos usan decimales con punto: `2.5`, no `2,5`. En `.c` y `.h`, mantén comentarios y mensajes sin tildes ni ñ para facilitar el uso de Dev-C++ 5.11.
+
+## 3. Compilar el programa completo
+
+Necesitas un compilador de C con soporte C11. Los comandos se verificaron con **GCC en MSYS2 UCRT64 para Windows**. GitHub Desktop descarga y comparte archivos; el código se compila aparte.
+
+En la terminal **MSYS2 UCRT64**, escribe `cd `, arrastra la carpeta clonada a la terminal y pulsa Enter. Debes quedar en la carpeta que contiene este `README.md` y `main.c`. Usa `pwd` para ver dónde estás y `gcc --version` para comprobar el compilador.
 
 ```bash
 gcc -std=c11 -Wall -Wextra -Wpedantic -Werror main.c entrada.c comun.c gestion.c horizonte.c medidas.c grafico_edificios.c grafico_horizonte.c archivos.c -o ciudad.exe
 ./ciudad.exe
 ```
 
-La entrada del menú usa decimales con punto. El programa informa que las funciones están pendientes. Si una función de gestión o carga llega a tener éxito, `main` vuelve a calcular el horizonte y las medidas; si estos cálculos fallan o siguen pendientes, no utiliza resultados anteriores. Después de cualquier cambio se debe guardar la ciudad para conservarla.
+**Ejecuta la segunda línea solo si la compilación termina sin errores.** Si falla, un `.exe` anterior podría seguir en la carpeta y mostrar resultados antiguos. Si `gcc` no se reconoce, pide al integrador ayuda con la instalación antes de continuar.
 
-## Pruebas iniciales por módulo
+Por ahora el menú informa que las operaciones están pendientes. Cuando se implementen gestión y cálculos, cada cambio actualizará horizonte y medidas. Para conservar una ciudad se usará la opción de guardar.
 
-Además, cada compañero tiene un ejemplo **individual y sencillo**, con datos preparados a mano, en `pruebas/ejemplo_*.c`. Los pasos para compilar su ejemplo aparecen al principio de su archivo de trabajo y en `pruebas/LEEME.md`. Por ejemplo, el compañero de medidas puede probar con un horizonte temporal sin esperar a que termine `horizonte.c`. Mientras el módulo esté pendiente, su ejemplo informa `PENDIENTE` y termina con error; eso es lo esperado para esta base.
+**Si trabajas con un IDE:** crea un proyecto de consola en **C**, activa C11 y agrega los diez archivos `.c` del comando anterior. Los `.h` son cabeceras compartidas. `proto.dev` es un proyecto local de Dev-C++ que actualmente no lista archivos fuente; no está preparado como punto de entrada del equipo. No agregues todos los `.c` de `pruebas/` al programa: varios tienen su propio `main` y otros simulan funciones.
 
-Para comprobar por separado la conversión y validación de entradas del menú:
+## 4. Acuerdo sobre los gráficos
 
-```bash
-gcc -std=c11 -Wall -Wextra -Wpedantic -Werror pruebas/entrada.c entrada.c comun.c -o pruebas_entrada.exe
-./pruebas_entrada.exe
-```
+Se mostrarán dos vistas sucesivas: primero edificios; al terminar esa vista, horizonte si está disponible. Cada función debe devolver el control al programa. No se generarán archivos SVG.
 
-Compilar este ejecutable separado desde la raíz del repositorio:
+**La biblioteca todavía necesita confirmación del profesor.** `graphics.h` es una candidata. El integrador y los compañeros 4 y 5 deben acordar biblioteca, versión, instalación, escala y cierre de las ventanas antes de incorporarla. Mientras tanto pueden preparar los datos de prueba, los ejes y el diseño del dibujo.
 
-```bash
-gcc -std=c11 -Wall -Wextra -Wpedantic -Werror pruebas/modulos.c comun.c gestion.c horizonte.c medidas.c grafico_edificios.c grafico_horizonte.c archivos.c -o pruebas_modulos.exe
-```
+La base actual compila sin biblioteca gráfica. Cuando se incorpore una, el integrador actualizará los comandos y las instrucciones de instalación para todos.
 
-Cada compañero puede probar su módulo sin esperar la implementación de los otros:
+## 5. Qué entregar
 
-```bash
-./pruebas_modulos.exe gestion
-./pruebas_modulos.exe horizonte
-./pruebas_modulos.exe medidas
-./pruebas_modulos.exe grafico_edificios
-./pruebas_modulos.exe grafico_horizonte
-./pruebas_modulos.exe archivos
-```
+- Tu módulo implementado y los ejemplos o casos que hayas añadido.
+- El comando que usaste para compilar.
+- Para cada caso probado: datos, resultado esperado y resultado obtenido. Empieza por tu ejemplo y continúa con los casos aplicables de [la matriz de pruebas](pruebas/casos.md).
+- Si haces gráficos: captura de la vista, revisión de figuras/ejes/escala y comprobación de que regresa al programa.
+- Una **pull request** (solicitud para integrar tu rama) con un resumen de los cambios y de lo que aún falte. El integrador la revisa y une a `main`.
 
-Las pruebas devuelven código `1` mientras la función esté pendiente o si falla. Los ensayos gráficos devuelven `2` cuando la función regresa correctamente, porque la **revisión visual sigue pendiente**: nadie debe interpretar ese resultado como una aprobación del dibujo. Estas pruebas son un punto de partida, no cubren todo el PDF; ver `pruebas/casos.md`. Cuando se implemente una biblioteca gráfica, los comandos de compilación deberán incluir sus dependencias.
+Los ejecutables, objetos y archivos temporales están excluidos mediante `.gitignore`. Comparte el código fuente y las pruebas que permitan volver a compilarlo.
 
-### Probar solo la conexión del menú
+## Documentación de consulta
 
-El siguiente ensayo usa **funciones simuladas**, no las implementaciones de los compañeros y no abre ventanas. Comprueba el orden de las llamadas, los mensajes ante fallos y que no se reutilicen resultados antiguos:
-
-```bash
-gcc -std=c11 -Wall -Wextra -Wpedantic -Werror main.c entrada.c comun.c pruebas/dobles_menu.c -o pruebas_menu.exe
-python pruebas/verificar_menu.py
-```
-
-Python 3 se necesita solo para ejecutar esta verificación automatizada. No se deben compilar `pruebas/dobles_menu.c` junto con los módulos reales: contiene funciones con los mismos nombres exclusivamente para la prueba.
-
-Para probar manualmente la ciudad oficial en el menú, cuando la carga esté implementada, elegir `8` y escribir `pruebas/ejemplo.txt`.
-
-## Trabajo con GitHub Desktop
-
-1. El integrador crea y publica el repositorio después de revisar esta base e invita a los compañeros.
-2. Cada compañero clona el repositorio, actualiza `main` y crea una rama propia.
-3. Trabaja principalmente en su archivo, consulta su ficha y ejecuta sus pruebas.
-4. Hace commit, sube la rama y crea una pull request hacia `main`.
-5. El integrador revisa contratos, compila y prueba; luego une una contribución a la vez.
-6. Para continuar, cada integrante actualiza su copia con los cambios integrados.
-
-Antes de publicar, revisa en GitHub Desktop qué archivos vas a incluir. `.gitignore` excluye ejecutables, objetos, archivos de sesión de IDE y salidas temporales; no elimina archivos que ya tienes. Si deseas conservar `proto.dev`, el proyecto local que creaste con Dev-C++, decide si quieres incluirlo o mantenerlo solo en tu computadora. Code::Blocks y `graphics.h` aún no están configurados para este proyecto de equipo. No se ha publicado nada automáticamente.
+| Necesito… | Consulto… |
+|---|---|
+| Clonar, crear una rama y entregar | [GitHub Desktop](documentacion/github_desktop.md) |
+| Saber qué recibe y devuelve mi función | [Fichas de los módulos](documentacion/funciones.md) |
+| Entender estructuras y punteros | [Guía del código](documentacion/guia_base.md) |
+| Compilar mi ejemplo | [Pruebas individuales](pruebas/LEEME.md) |
+| Buscar casos adicionales | [Matriz de pruebas](pruebas/casos.md) |
+| Ejecutar controles del integrador | [Pruebas de integración](documentacion/pruebas_integrador.md) |
+| Ver qué se comprobó realmente | [Registro de verificación](documentacion/verificacion.md) |
