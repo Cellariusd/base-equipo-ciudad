@@ -36,6 +36,33 @@
  * pruebas/casos.md.
  */
 Estado calcular_medidas(const Horizonte *horizonte, Medidas *resultado) {
-    (void)horizonte; (void)resultado;
-    return ESTADO_PENDIENTE;
+     int i;
+    double anterior = 0.0;
+
+    resultado->area = 0.0;
+    resultado->perimetro = 0.0;
+
+    for (i = 0; i < horizonte->cantidad; i++) {
+        double ancho = horizonte->segmentos[i].fin - horizonte->segmentos[i].inicio;
+        double altura = horizonte->segmentos[i].altura;
+        double cambio = altura - anterior;
+
+        resultado->area += ancho * altura;
+        if (altura > 0.0) {
+            resultado->perimetro += 2.0 * ancho;
+        }
+        if (cambio < 0.0) {
+            cambio = -cambio;
+        }
+        resultado->perimetro += cambio;
+        anterior = altura;
+    }
+
+    if (anterior < 0.0) {
+        anterior = -anterior;
+    }
+    resultado->perimetro += anterior;
+
+    return ESTADO_OK;
+
 }
