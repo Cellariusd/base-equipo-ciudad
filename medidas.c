@@ -36,7 +36,7 @@
  * pruebas/casos.md.
  */
 Estado calcular_medidas(const Horizonte *horizonte, Medidas *resultado) {
-     int i;
+    int i;
     double anterior = 0.0;
 
     resultado->area = 0.0;
