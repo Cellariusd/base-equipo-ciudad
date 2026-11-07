@@ -23,6 +23,8 @@ Antes de enviar el enlace al equipo:
 4. Pulsa **Clone**. Así tendrás los archivos y el historial en tu computadora.
 5. Abre la carpeta con **Repository → Show in Explorer** y lee `README.md`.
 
+Para abrir el proyecto directamente en Code::Blocks desde Desktop, sigue [la configuración del editor externo](codeblocks.md#3-abrir-desde-github-desktop). El archivo que debes abrir es `base-equipo-ciudad.cbp`.
+
 ## 3. Crear tu rama antes de editar
 
 1. En **Current Branch**, selecciona `main`.

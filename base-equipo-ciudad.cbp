@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+    <FileVersion major="1" minor="6" />
+    <Project>
+        <Option title="Proyecto Ciudad - Equipo" />
+        <Option compiler="gcc" />
+        <Build>
+            <Target title="Debug">
+                <Option output="bin/Debug/ciudad" prefix_auto="1" extension_auto="1" />
+                <Option working_dir="." />
+                <Option object_output="obj/Debug/" />
+                <Option type="1" />
+                <Option compiler="gcc" />
+                <Compiler>
+                    <Add option="-g" />
+                </Compiler>
+            </Target>
+            <Target title="Release">
+                <Option output="bin/Release/ciudad" prefix_auto="1" extension_auto="1" />
+                <Option working_dir="." />
+                <Option object_output="obj/Release/" />
+                <Option type="1" />
+                <Option compiler="gcc" />
+                <Compiler>
+                    <Add option="-O2" />
+                </Compiler>
+            </Target>
+        </Build>
+        <Compiler>
+            <Add option="-std=c11" />
+            <Add option="-Wall" />
+            <Add option="-Wextra" />
+            <Add option="-Wpedantic" />
+            <Add option="-Werror" />
+        </Compiler>
+        <Unit filename="main.c">
+            <Option compilerVar="CC" />
+        </Unit>
+        <Unit filename="entrada.c">
+            <Option compilerVar="CC" />
+        </Unit>
+        <Unit filename="comun.c">
+            <Option compilerVar="CC" />
+        </Unit>
+        <Unit filename="gestion.c">
+            <Option compilerVar="CC" />
+        </Unit>
+        <Unit filename="horizonte.c">
+            <Option compilerVar="CC" />
+        </Unit>
+        <Unit filename="medidas.c">
+            <Option compilerVar="CC" />
+        </Unit>
+        <Unit filename="grafico_edificios.c">
+            <Option compilerVar="CC" />
+        </Unit>
+        <Unit filename="grafico_horizonte.c">
+            <Option compilerVar="CC" />
+        </Unit>
+        <Unit filename="archivos.c">
+            <Option compilerVar="CC" />
+        </Unit>
+        <Unit filename="ciudad.h" />
+        <Unit filename="entrada.h" />
+        <Extensions />
+    </Project>
+</CodeBlocks_project_file>

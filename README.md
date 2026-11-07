@@ -40,6 +40,12 @@ Si necesitas repasar estructuras, `const`, punteros o `->`, consulta [la guía p
 
 ## 3. Compilar el programa completo
 
+### Con Code::Blocks
+
+Abre **`base-equipo-ciudad.cbp`**, selecciona **Debug** y pulsa **F9** (Build and run). El proyecto ya incluye los archivos del programa y la configuración C11. Consulta [la guía de Code::Blocks](documentacion/codeblocks.md) para configurar GCC y abrirlo directamente desde GitHub Desktop.
+
+### Desde una terminal
+
 Necesitas un compilador de C con soporte C11. Los comandos se verificaron con **GCC en MSYS2 UCRT64 para Windows**. GitHub Desktop descarga y comparte archivos; el código se compila aparte.
 
 En la terminal **MSYS2 UCRT64**, escribe `cd `, arrastra la carpeta clonada a la terminal y pulsa Enter. Debes quedar en la carpeta que contiene este `README.md` y `main.c`. Usa `pwd` para ver dónde estás y `gcc --version` para comprobar el compilador.
@@ -53,7 +59,7 @@ gcc -std=c11 -Wall -Wextra -Wpedantic -Werror main.c entrada.c comun.c gestion.c
 
 Por ahora el menú informa que las operaciones están pendientes. Cuando se implementen gestión y cálculos, cada cambio actualizará horizonte y medidas. Para conservar una ciudad se usará la opción de guardar.
 
-**Si trabajas con un IDE:** crea un proyecto de consola en **C**, activa C11 y agrega los diez archivos `.c` del comando anterior. Los `.h` son cabeceras compartidas. `proto.dev` es un proyecto local de Dev-C++ que actualmente no lista archivos fuente; no está preparado como punto de entrada del equipo. No agregues todos los `.c` de `pruebas/` al programa: varios tienen su propio `main` y otros simulan funciones.
+**Si trabajas con otro IDE:** crea un proyecto de consola en **C**, activa C11 y agrega los nueve archivos `.c` del comando anterior. Los `.h` son cabeceras compartidas. `proto.dev` es un proyecto local de Dev-C++ que actualmente no lista archivos fuente; para Code::Blocks usa `base-equipo-ciudad.cbp`. No agregues todos los `.c` de `pruebas/` al programa: varios tienen su propio `main` y otros simulan funciones.
 
 ## 4. Acuerdo sobre los gráficos
 
@@ -78,6 +84,7 @@ Los ejecutables, objetos y archivos temporales están excluidos mediante `.gitig
 | Necesito… | Consulto… |
 |---|---|
 | Clonar, crear una rama y entregar | [GitHub Desktop](documentacion/github_desktop.md) |
+| Abrir y compilar con Code::Blocks | [Proyecto y configuración del editor](documentacion/codeblocks.md) |
 | Saber qué recibe y devuelve mi función | [Fichas de los módulos](documentacion/funciones.md) |
 | Entender estructuras y punteros | [Guía del código](documentacion/guia_base.md) |
 | Compilar mi ejemplo | [Pruebas individuales](pruebas/LEEME.md) |

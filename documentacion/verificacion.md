@@ -63,6 +63,17 @@ Antes de repartir: asignar los seis responsables y confirmar que todos puedan co
 
 ## Tabla para completar durante la integración
 
+### Proyecto de Code::Blocks
+
+Se agregó `base-equipo-ciudad.cbp` con los nueve fuentes del programa y las dos cabeceras, rutas relativas, aplicación de consola, C11 y advertencias estrictas. Las pruebas individuales se mantienen fuera del ejecutable principal.
+
+- Compilación por lotes con Code::Blocks 25.03 y su MinGW/GCC 14.2.0 instalado en esta computadora: **Debug y Release terminaron con código 0**.
+- Se ejecutaron ambos binarios generados: opción 6 con ciudad vacía y opción 0 de salida, con mensajes correctos y código 0.
+- Se abrió el proyecto en la interfaz y se confirmó el título **Proyecto Ciudad - Equipo**. Para evitar el error al enviar la ruta a otra instancia abierta se usaron `--multiple-instance --no-dde`.
+- El botón F9 y el lanzamiento desde la interfaz de GitHub Desktop quedan por comprobar por el usuario. La compilación verificada se hizo con el propio Code::Blocks por línea de comandos; la configuración del editor externo está explicada en [codeblocks.md](codeblocks.md).
+
+### Resultados funcionales pendientes
+
 | ID | Requisito evaluado | Datos | Esperado | Obtenido | Estado |
 |---|---|---|---|---|---|
 | P01–P13 | Casos mínimos del profesor | Ver `pruebas/casos.md` | Resultados indicados en la matriz | No ejecutados en esta base | Pendiente |
