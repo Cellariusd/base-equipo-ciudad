@@ -14,7 +14,7 @@ static void mostrar_menu(void) {
     printf("8. Cargar ciudad\n");
     printf("0. Salir\n");
     printf("> ");
-}
+    printf("9");}
 
 static void informar_estado(Estado estado) {
     switch (estado) {
