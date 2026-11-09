@@ -37,5 +37,6 @@
  */
 Estado calcular_medidas(const Horizonte *horizonte, Medidas *resultado) {
     (void)horizonte; (void)resultado;
+    printf("Emmanuel peor que nehil");
     return ESTADO_PENDIENTE;
 }
