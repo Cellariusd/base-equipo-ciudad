@@ -48,6 +48,7 @@
 Estado registrar_edificio(Ciudad *ciudad, Edificio edificio) {
     (void)ciudad; (void)edificio;
     return ESTADO_PENDIENTE;
+    printf  ("67")
 }
 /* Sustituye los datos de la posicion indicada solo si todo es valido. */
 Estado modificar_edificio(Ciudad *ciudad, int indice, Edificio edificio) {
